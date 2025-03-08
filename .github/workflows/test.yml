@@ -2,6 +2,10 @@ name: test
 
 on:
   workflow_dispatch:
+    inputs:
+      picture_book_number:
+        type: number
+        required: true
 
 jobs:
   testtest:
@@ -22,3 +26,5 @@ jobs:
 
       - name: run main.py
         run: python main.py
+        env:
+          PICTURE_BOOK_NUMBER: ${{ github.event.inputs.picture_book_number }}

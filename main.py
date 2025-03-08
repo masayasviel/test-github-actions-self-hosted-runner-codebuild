@@ -1,8 +1,11 @@
+import os
+
 import requests
 
 
 def main():
-    response = requests.get('https://example.com/')
+    picture_book_number = os.environ['PICTURE_BOOK_NUMBER']
+    response = requests.get(f'https://pokeapi.co/api/v2/pokemon/{picture_book_number}')
     contents = response.json()
     print(contents)
 
